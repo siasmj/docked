@@ -1,4 +1,4 @@
-ARG RUBY_VERSION=3.2.0
+ARG RUBY_VERSION=3.2.2
 
 FROM ruby:$RUBY_VERSION-slim
 
@@ -6,11 +6,11 @@ FROM ruby:$RUBY_VERSION-slim
 RUN apt-get update -qq && apt-get install -y build-essential libvips gnupg2 curl git
 
 # Ensure node.js 18 is available for apt-get
-ARG NODE_MAJOR=18
-RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
+# ARG NODE_MAJOR=18
+# RUN curl -sL https://deb.nodesource.com/setup_$NODE_MAJOR.x | bash -
 
 # Install node and yarn
-RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn
+# RUN apt-get update -qq && apt-get install -y nodejs && npm install -g yarn
 
 # Mount $PWD to this workdir
 WORKDIR /rails
